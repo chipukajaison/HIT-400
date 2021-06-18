@@ -1,0 +1,115 @@
+{% extends '../base.html' %}
+
+{% block content %}
+    <div class="row align-items-center mb-2">
+                <div class="col">
+                  <h2 class="h5 page-title">Welcome!</h2>
+                </div>
+                <div class="col-auto">
+                  <form class="form-inline">
+                    <div class="form-group d-none d-lg-inline">
+                      <label for="reportrange" class="sr-only">Date Ranges</label>
+                      <div id="reportrange" class="px-2 py-2 text-muted">
+                        <span class="small"></span>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <a href="/predictions/new-record">
+                        <button type="button" class="btn mb-2 btn-primary"><span class="fe fe-plus fe-16 mr-2"></span>New Patient Prediction</button>
+                      </a>
+                    </div>
+                  </form>
+                </div>
+              </div>
+    <div class="row my-4">
+                <div class="col-md-4">
+                  <div class="card shadow mb-4">
+                    <div class="card-body">
+                      <div class="row align-items-center">
+                        <div class="col">
+                          <small class="text-muted mb-1">Number of Patients</small>
+                          <h3 class="card-title mb-0">{{ records_count }}</h3>
+<!--                          <p class="small text-muted mb-0"><span class="fe fe-arrow-down fe-12 text-danger"></span><span>-18.9% Last week</span></p>-->
+                        </div>
+                        <div class="col-4 text-right">
+<!--                          <span class="sparkline inlineline"></span>-->
+                        </div>
+                      </div> <!-- /. row -->
+                    </div> <!-- /. card-body -->
+                  </div> <!-- /. card -->
+                </div> <!-- /. col -->
+                <div class="col-md-4">
+                  <div class="card shadow mb-4">
+                    <div class="card-body">
+                      <div class="row align-items-center">
+                        <div class="col">
+{#                          <small class="text-muted mb-1">Patient Results</small>#}
+{#                          <h3 class="card-title mb-0">0</h3>#}
+<!--                          <p class="small text-muted mb-0"><span class="fe fe-arrow-up fe-12 text-warning"></span><span>+1.9% Last week</span></p>-->
+                        </div>
+                        <div class="col-4 text-right">
+<!--                          <span class="sparkline inlinepie"></span>-->
+                        </div>
+                      </div> <!-- /. row -->
+                    </div> <!-- /. card-body -->
+                  </div> <!-- /. card -->
+                </div> <!-- /. col -->
+                <div class="col-md-4">
+                  <div class="card shadow mb-4">
+                    <div class="card-body">
+                      <div class="row align-items-center">
+                        <div class="col">
+                          <small class="text-muted mb-1">Classifications</small>
+                          <h3 class="card-title mb-0">Negatives: {{ negatives }}</h3>
+                          <h3 class="card-title mb-0">Positives: {{ positives }}</h3>
+<!--                          <p class="small text-muted mb-0"><span class="fe fe-arrow-up fe-12 text-success"></span><span>37.7% Last week</span></p>-->
+                        </div>
+                        <div class="col-4 text-right">
+<!--                          <span class="sparkline inlinebar"></span>-->
+                        </div>
+                      </div> <!-- /. row -->
+                    </div> <!-- /. card-body -->
+                  </div> <!-- /. card -->
+                </div> <!-- /. col -->
+              </div> <!-- end section -->
+    <div class="col-md-12">
+        <div class="col-md-12 my-4">
+                  <div class="card shadow">
+                    <div class="card-body">
+                      <h5 class="card-title">Patients Records</h5>
+                      <p class="card-text">This is the list of all the patients records.</p>
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>Pregnancies</th>
+                            <th>Glucose</th>
+                            <th>Blood Pressure</th>
+                            <th>Skin Thinkness</th>
+                            <th>Insulin</th>
+                            <th>BMI</th>
+                            <th>Dia. Ped. Func.</th>
+                            <th>Age</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            {% for record in records %}
+                                <tr>
+                                    <td>{{ record.pregnancies }}</td>
+                                    <td>{{ record.glucose }}</td>
+                                    <td>{{ record.blood_pressure }}</td>
+                                    <td>{{ record.skin_thickness }}</td>
+                                    <td>{{ record.insulin }}</td>
+                                    <td>{{ record.BMI }}</td>
+                                    <td>{{ record.diabetes_pedigree_function }}</td>
+                                    <td>{{ record.age }}</td>
+                                    <td><span class="badge badge-pill {% if record.result == 'Positive' %} badge-danger {% else %} badge-success {% endif %}">{{ record.result }}</span></td>
+                                  </tr>
+                            {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+    </div>
+{% endblock %}

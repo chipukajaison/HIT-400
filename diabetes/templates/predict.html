@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict : Diabetes Prediction System</title>
+</head>
+<body>
+    <h1>Welcome to the predict page!</h1>
+    <div align='center' class="main">
+        <p>Please enter the following information</p>
+        <form action="result">
+            <div>
+                <label for="pregnancies">Pregnancies </label>
+                <div>
+                    <input type="text" name="pregnancies" id="pregnancies">
+                </div>
+            </div><br>
+            <div>
+                <label for="glucose">Glucose </label>
+                <div>
+                    <input type="text" name="glucose" id="glucose">
+                </div>
+            </div><br>
+            <div>
+                <label for="blood_pressure">Blood Pressure </label>
+                <div>
+                    <input type="text" name="blood_pressure" id="blood_pressure">
+                </div>
+            </div><br>
+            <div>
+                <label for="skin">Skin Thickness </label>
+                <div>
+                    <input type="text" name="skin" id="skin">
+                </div>
+            </div><br>
+            <div>
+                <label for="insulin">Insulin </label>
+                <div>
+                    <input type="text" name="insulin" id="insulin">
+                </div>
+            </div><br>
+            <div>
+                <label for="bmi">Body Mass Index </label>
+                <div>
+                    <input type="text" name="bmi" id="bmi">
+                </div>
+            </div><br>
+            <div>
+                <label for="dpf">Diabetes Pedigree function </label>
+                <div>
+                    <input type="text" name="dpf" id="dpf">
+                </div>
+            </div><br>
+            <div>
+                <label for="age">Age </label>
+                <div>
+                    <input type="text" name="age" id="age">
+                </div>
+            </div><br>
+            <input type="submit" value="Show result">
+        </form>
+        Result:{{result2}}
+    </div>
+</body>
+</html>
